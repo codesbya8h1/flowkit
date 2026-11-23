@@ -1,0 +1,17 @@
+---
+description: Flowkit phase lock for Cursor. Read the active run and stay inside its phase.
+alwaysApply: true
+---
+
+This repository uses flowkit. The order of work is a Python state machine, not a suggestion in this rule.
+
+Before you edit anything:
+
+1. Read `.flow/current` and the `state.json` it points at under `.flow/runs/<id>/`.
+2. Stay in that phase. Explore, spec, plan, test plan, diff, self review, and the pull-request phase do not edit product code. The red phase edits tests only. The implement phase edits the files of the active slice only, and it does not edit tests.
+3. The next command is whatever `python -m flowkit next` prints. Do not skip ahead.
+4. Do not claim tests passed. The human runs `python -m flowkit verify`.
+5. Do not push, force-push, or merge.
+6. Use the model named in `.flow/runs/<id>/prompts/`. If this chat is a different model, stop and say which model the prompt requires.
+
+A human approves the spec (full tier), the plan, the test plan, the diff, the review, and the pull request. You do not approve those gates yourself.

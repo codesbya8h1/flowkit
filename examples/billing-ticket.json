@@ -1,0 +1,52 @@
+{
+  "key": "BILL-42",
+  "fields": {
+    "summary": "Make billing token refresh idempotent",
+    "issuetype": {"name": "Story"},
+    "labels": ["billing", "security"],
+    "status": {"name": "Ready"},
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Refreshing a billing token twice in one minute creates two charges. A second refresh with the same idempotency key must return the original charge and must not create another."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "attrs": {"level": 2},
+          "content": [{"type": "text", "text": "Acceptance criteria"}]
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [{"type": "text", "text": "A repeated refresh with the same key returns the original charge id."}]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [{"type": "text", "text": "A refresh with no key is rejected and creates no charge."}]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
